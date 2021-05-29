@@ -83,6 +83,18 @@ path = 'src/joi2008yo_e.rs'
 name = 's8pc_4_b'
 path = 'src/s8pc_4_b.rs'
 
+[[bin]]
+name = 'abc145c'
+path = 'src/abc145c.rs'
+
+[[bin]]
+name = 'abc150c'
+path = 'src/abc150c.rs'
+
+[[bin]]
+name = 'joi2009hob'
+path = 'src/joi2009hob.rs'
+
 [dependencies]
 whiteread = '0.5.0'
 itertools = '0.9.0'
