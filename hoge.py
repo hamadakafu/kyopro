@@ -1,8 +1,10 @@
-n = int(input())
-yamas = []
-for i in range(0, n):
-    s, t = input().split(' ')
-    yamas.append((s, int(t)))
+n, k = map(int, input().split())
 
-yamas.sort(key= lambda x: x[1], reverse=True)
-print(yamas[1][0])
+ans = 0
+for i in range(1, n + 1):
+    for j in range(1, k+1):
+        heya = int(f'{i}0{j}')
+        ans += heya
+
+print(ans)
+
