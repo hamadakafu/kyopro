@@ -1,7 +1,10 @@
-import math
-p = float(input())
+n = int(input())
 
-a = lambda p: - 3 / 2 * math.log2( 3 / (2 * p * math.log(2)))
-f = lambda x, p: x + p / pow(2, x / 1.5)
+aa = list(map(int, input().split()))
 
-print(f(max(a(p), 0), p))
+ans = 0
+for i in range(0, n):
+    if aa[i] > 10:
+        ans += aa[i] - 10
+
+print(ans)
