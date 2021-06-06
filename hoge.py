@@ -1,10 +1,7 @@
-n, k = map(int, input().split())
+import math
+p = float(input())
 
-ans = 0
-for i in range(1, n + 1):
-    for j in range(1, k+1):
-        heya = int(f'{i}0{j}')
-        ans += heya
+a = lambda p: - 3 / 2 * math.log2( 3 / (2 * p * math.log(2)))
+f = lambda x, p: x + p / pow(2, x / 1.5)
 
-print(ans)
-
+print(f(max(a(p), 0), p))

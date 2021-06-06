@@ -103,6 +103,14 @@ path = 'src/abc203c.rs'
 name = 'abc203d'
 path = 'src/abc203d.rs'
 
+[[bin]]
+name = 'abc077c'
+path = 'src/abc077c.rs'
+
+[[bin]]
+name = 'abc023d'
+path = 'src/abc023d.rs'
+
 [dependencies]
 whiteread = '0.5.0'
 itertools = '0.9.0'
