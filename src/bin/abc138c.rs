@@ -5,6 +5,7 @@ use itertools::Itertools;
 use whiteread::parse_line;
 
 // FIXME: すべてのテストケースに通らない
+// dfs 深さ優先探索
 fn main() {
     let (n, q): (usize, usize) = parse_line().unwrap();
     // 0が余分にある

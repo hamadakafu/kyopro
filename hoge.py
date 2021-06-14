@@ -1,10 +1,46 @@
-n = int(input())
+a, b, c = map(int, input().split())
 
-aa = list(map(int, input().split()))
+if a < 0 and b >= 0:
+    if c % 2 == 0:
+        if abs(a) > b:
+            print(">")
+        elif abs(a) < b:
+            print("<")
+        else:
+            print("=")
+    else:
+        print("<")
+elif a >= 0 and b < 0:
+    if c % 2 == 0:
+        if abs(a) > abs(b):
+            print(">")
+        elif abs(a) < abs(b):
+            print("<")
+        else:
+            print("=")
+    else:
+        print(">")
 
-ans = 0
-for i in range(0, n):
-    if aa[i] > 10:
-        ans += aa[i] - 10
+elif a >= 0 and b >= 0:
+    if abs(a) > abs(b):
+        print(">")
+    elif abs(a) < abs(b):
+        print("<")
+    else:
+        print("=")
+elif a < 0 and b < 0:
+    if c % 2 == 0:
+        if abs(a) > abs(b):
+            print(">")
+        elif abs(a) < abs(b):
+            print("<")
+        else:
+            print("=")
 
-print(ans)
+    else:
+        if abs(a) > abs(b):
+            print("<")
+        elif abs(a) < abs(b):
+            print(">")
+        else:
+            print("=")
