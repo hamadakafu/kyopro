@@ -1,46 +1,9 @@
-a, b, c = map(int, input().split())
+n = int(input())
 
-if a < 0 and b >= 0:
-    if c % 2 == 0:
-        if abs(a) > b:
-            print(">")
-        elif abs(a) < b:
-            print("<")
-        else:
-            print("=")
-    else:
-        print("<")
-elif a >= 0 and b < 0:
-    if c % 2 == 0:
-        if abs(a) > abs(b):
-            print(">")
-        elif abs(a) < abs(b):
-            print("<")
-        else:
-            print("=")
-    else:
-        print(">")
+tmp = 0
+count = 1
+while tmp < n:
+    tmp += count
+    count += 1
 
-elif a >= 0 and b >= 0:
-    if abs(a) > abs(b):
-        print(">")
-    elif abs(a) < abs(b):
-        print("<")
-    else:
-        print("=")
-elif a < 0 and b < 0:
-    if c % 2 == 0:
-        if abs(a) > abs(b):
-            print(">")
-        elif abs(a) < abs(b):
-            print("<")
-        else:
-            print("=")
-
-    else:
-        if abs(a) > abs(b):
-            print("<")
-        elif abs(a) < abs(b):
-            print(">")
-        else:
-            print("=")
+print(count - 1)
