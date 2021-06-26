@@ -1,9 +1,11 @@
-n = int(input())
+import math
+a, b, c, d = map(int, input().split())
 
-tmp = 0
-count = 1
-while tmp < n:
-    tmp += count
-    count += 1
+if c * d - b <= 0:
+    if a == 0:
+        print(0)
+    else:
+        print(-1)
+else:
+    print(math.ceil((a / (c * d - b))))
 
-print(count - 1)
