@@ -1,13 +1,3 @@
-n = int(input())
-s = input()
+a, b = map(int, input().split())
 
-cnt = 0
-for c in s:
-    if c == '1':
-        if cnt % 2 == 0:
-            print('Takahashi')
-            exit()
-        else:
-            print('Aoki')
-            exit()
-    cnt += 1
+print((a - b) / 3 + b)
