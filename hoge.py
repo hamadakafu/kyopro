@@ -1,3 +1,11 @@
-a, b = map(int, input().split())
+x = list(map(int, list(input())))
 
-print((a - b) / 3 + b)
+if x[0] == x[1] == x[2] == x[3]:
+    print("Weak")
+    exit()
+
+if (x[0] + 1) % 10 == x[1] and (x[1] + 1) % 10 == x[2] and (x[2] + 1) % 10 == x[3]:
+    print("Weak")
+    exit()
+
+print("Strong")
