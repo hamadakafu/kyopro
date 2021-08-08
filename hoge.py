@@ -1,11 +1,7 @@
-x = list(map(int, list(input())))
+from operator import xor
 
-if x[0] == x[1] == x[2] == x[3]:
-    print("Weak")
-    exit()
+n = int(input())
+aa = list(enumerate(map(int, input().split())))
 
-if (x[0] + 1) % 10 == x[1] and (x[1] + 1) % 10 == x[2] and (x[2] + 1) % 10 == x[3]:
-    print("Weak")
-    exit()
-
-print("Strong")
+aa.sort(key=lambda x: x[1], reverse=True)
+print(aa[1][0] + 1)
