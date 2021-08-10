@@ -25,6 +25,38 @@ fn main() {
         paths[a].push(b);
     }
 
+    let groups = scc(n, &paths);
+
+    // 最後に何通りの(x, y)があるか?
+    let mut ans = 0;
+    for g in groups {
+        if g.len() > 1 {
+            ans += g.len() * (g.len() - 1) / 2;
+        }
+    }
+    println!("{}", ans);
+}
+
+/// n: nodeの数
+/// paths:
+fn scc(n: usize, paths: &Vec<Vec<usize>>) -> Vec<Vec<usize>> {
+    fn dfs(
+        index: &mut Vec<usize>,
+        counter: &mut usize,
+        now: usize,
+        already: &mut Vec<bool>,
+        paths: &Vec<Vec<usize>>,
+    ) {
+        for p in paths[now].iter() {
+            if !already[*p] {
+                already[*p] = true;
+                dfs(index, counter, *p, already, paths);
+                *counter += 1;
+                index[*counter] = *p;
+            }
+        }
+    }
+
     // 帰り順にindexに数字が入る
     let mut already: Vec<bool> = vec![false; n + 1];
     let mut index: Vec<usize> = vec![0; n + 1];
@@ -69,30 +101,5 @@ fn main() {
         }
         groups.push(group);
     }
-
-    // 最後に何通りの(x, y)があるか?
-    let mut ans = 0;
-    for g in groups {
-        if g.len() > 1 {
-            ans += g.len() * (g.len() - 1) / 2;
-        }
-    }
-    println!("{}", ans);
-}
-
-fn dfs(
-    index: &mut Vec<usize>,
-    counter: &mut usize,
-    now: usize,
-    already: &mut Vec<bool>,
-    paths: &Vec<Vec<usize>>,
-) {
-    for p in paths[now].iter() {
-        if !already[*p] {
-            already[*p] = true;
-            dfs(index, counter, *p, already, paths);
-            *counter += 1;
-            index[*counter] = *p;
-        }
-    }
+    return groups;
 }
