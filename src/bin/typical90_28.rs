@@ -8,6 +8,14 @@ use whiteread::parse_line;
 const ten97: usize = 1000_000_007;
 
 // いもす法
+// (1, 2), (3, 4)の長方形の場合以下のようにしていもすする
+// 0  1  2  3  4  5  y
+// 1     1    -1
+// 2
+// 3
+// 4    -1     1
+// 5
+// x
 fn main() {
     let n: usize = parse_line().unwrap();
     let ookisa = 1002;
