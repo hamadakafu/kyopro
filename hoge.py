@@ -1,7 +1,8 @@
 n = int(input())
-if n <= 125:
-    print(4)
-elif n <= 211:
-    print(6)
-else:
-    print(8)
+
+k = 0
+while 2 ** k <= n:
+    k += 1
+
+print(k - 1)
+
