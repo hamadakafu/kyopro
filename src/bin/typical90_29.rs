@@ -20,7 +20,7 @@ fn main() {
         let (l, r): (usize, usize) = parse_line().unwrap();
         let now = st.query((l, r + 1));
         st.update((l, r + 1), Reverse(now.0 + 1));
-        println!("{}", st.query((l, r + 1)).0);
+        println!("{}", now.0 + 1);
     }
 }
 
