@@ -36,9 +36,10 @@ fn main() {
 }
 
 /// 有向グラフのトポロジカルソート
-/// indexは1始まり
-/// 0..=n
-fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize>{
+/// indexは1始まりで頂点数nのグラフ
+/// 有向グラフが巡回していなければトポロジカルソートソートで長さがnのVecが出てくる
+/// そうでないならトポロジカルソートできていない（ノードが重複して出現してしまうので）
+fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize> {
     let mut ans = vec![];
     let mut jisuu: Vec<usize> = vec![0; n + 1];
     for t in paths.iter() {
@@ -48,6 +49,7 @@ fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize>{
     }
 
     let mut queue: VecDeque<usize> = VecDeque::new();
+    // 0が入らないように1始まりにしている
     for i in 1..=n {
         if jisuu[i] == 0 {
             queue.push_front(i);
@@ -55,8 +57,6 @@ fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize>{
         }
     }
 
-    // この段階で1は調査済みであるので，
-    // 1に対して処理すべきことは済ましておく
     while !queue.is_empty() {
         let t = queue.pop_front().unwrap();
         for p in paths[t].iter() {
@@ -64,7 +64,7 @@ fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize>{
             jisuu[*p] -= 1;
             if jisuu[*p] == 0 {
                 queue.push_front(*p);
-                ans.push(*p);
+                ans.push(*p); //  巡回していたときここでノードが重複して出現する
             }
         }
     }
