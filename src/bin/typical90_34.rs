@@ -11,6 +11,9 @@ const ten97: usize = 1000_000_007;
 const inv2ten97: u128 = 500_000_004;
 
 /// しゃくとり法，尺取り法
+/// ```
+/// let a = 1;
+/// ```
 fn main() {
     let (n, k): (usize, usize) = parse_line().unwrap();
     let aa: Vec<usize> = parse_line().unwrap();
