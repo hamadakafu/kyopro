@@ -53,6 +53,7 @@ fn main() {
 /// 2つの完全2分木のデータ構造
 /// 区間の最小(or 最大)の値を保存する
 /// 最大値を保存するときはSegmentTree<Reverse<usize>>
+/// SegmentTreeはdataに入れるだけならO(n)で済むので毎回updateする必要がない場合がある
 #[derive(Debug, Clone)]
 struct SegmentTree<T> {
     // 区間の要素数
@@ -72,6 +73,21 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
     #[inline(always)]
     fn new(range: usize, INF: T) -> Self {
         let range = range.next_power_of_two();
+        SegmentTree {
+            range,
+            n: range * 2 - 1,
+            data: vec![INF.clone(); range * 2 - 1],
+            lazy: vec![INF.clone(); range * 2 - 1],
+            INF,
+        }
+    }
+
+    #[inline(always)]
+    fn new_from_vec(range: usize, data: Vec<T>, INF: T) -> Self {
+        let range = range.next_power_of_two();
+        if range < data.len() {
+            panic!("vecのサイズ大きすぎ");
+        }
         SegmentTree {
             range,
             n: range * 2 - 1,
