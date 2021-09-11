@@ -1,14 +1,5 @@
-s1 = input()
-s2 = input()
-s3 = input()
-
-ss = set()
-ss.add('ABC')
-ss.add('ARC')
-ss.add('AGC')
-ss.add('AHC')
-ss.remove(s1)
-ss.remove(s2)
-ss.remove(s3)
-for s in ss:
-    print(s)
+pp = list(map(int, input().split()))
+ss = ""
+for i in range(26):
+    ss += chr(ord("a") - 1 + pp[i])
+print(ss)
