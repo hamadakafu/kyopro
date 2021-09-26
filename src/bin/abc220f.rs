@@ -6,6 +6,7 @@ use whiteread::parse_line;
 
 const ten97: usize = 1000000007;
 
+// 木を工夫して順番ずつたどることで前の値を活かしていけばO(N)で計算できる
 fn main() {
     let n: usize = parse_line().unwrap();
     let mut paths: Vec<Vec<usize>> = vec![vec![]; n + 1];
