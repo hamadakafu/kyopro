@@ -1,19 +1,9 @@
-s = input()
-t = input()
+n, p = map(int, input().split())
+aa = list(map(int, input().split()))
 
-i = zip(list(s), list(t))
+ans = 0
+for a in aa:
+    if a < p:
+        ans += 1
 
-while True:
-    ss, tt = next(i, (-1, -1))
-    if ss == -1 and tt == -1:
-        break
-    if ss != tt:
-        sss, ttt = next(i)
-        if ss == ttt and sss == tt:
-            print('Yes')
-            exit()
-        else:
-            print('No')
-            exit()
-
-print('Yes')
+print(ans)
