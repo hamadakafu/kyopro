@@ -1,9 +1,13 @@
-n, p = map(int, input().split())
-aa = list(map(int, input().split()))
+s = input()
+mins = str(s[:])
+maxs = str(s[:])
 
-ans = 0
-for a in aa:
-    if a < p:
-        ans += 1
+def rotate(l, n):
+    return l[-n:] + l[:-n]
 
-print(ans)
+for _ in range(len(s)):
+    s = rotate(s, 1)
+    mins = min(mins, s)
+    maxs = max(maxs, s)
+
+print(mins, maxs)
