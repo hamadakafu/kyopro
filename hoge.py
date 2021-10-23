@@ -1,13 +1,14 @@
-s = input()
-mins = str(s[:])
-maxs = str(s[:])
+h, w = map(int, input().split())
+mapmap = []
+for _ in range(h):
+    mapmap.append(list(map(int, input().split())))
 
-def rotate(l, n):
-    return l[-n:] + l[:-n]
+for i1 in range(h - 1):
+    for i2 in range(i1 + 1, h):
+        for j1 in range(w - 1):
+            for j2 in range(j1 + 1, w):
+                if mapmap[i1][j1] + mapmap[i2][j2] > mapmap[i2][j1] + mapmap[i1][j2]:
+                    print('No')
+                    exit()
 
-for _ in range(len(s)):
-    s = rotate(s, 1)
-    mins = min(mins, s)
-    maxs = max(maxs, s)
-
-print(mins, maxs)
+print('Yes')
