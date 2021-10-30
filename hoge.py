@@ -1,14 +1,24 @@
-h, w = map(int, input().split())
-mapmap = []
-for _ in range(h):
-    mapmap.append(list(map(int, input().split())))
+n = int(input())
 
-for i1 in range(h - 1):
-    for i2 in range(i1 + 1, h):
-        for j1 in range(w - 1):
-            for j2 in range(j1 + 1, w):
-                if mapmap[i1][j1] + mapmap[i2][j2] > mapmap[i2][j1] + mapmap[i1][j2]:
-                    print('No')
-                    exit()
+f1, f2 = map(int, input().split())
+a, b = map(int, input().split())
+check = 0
+if f1 == a or f2 == a:
+    check = a
+elif f1 == b or f2 == b:
+    check = b
+else:
+    print('No')
+    exit()
+
+
+for _ in range(n - 3):
+    a, b = map(int, input().split())
+    if a == check or b == check:
+        continue
+    else:
+        print('No')
+        exit()
 
 print('Yes')
+
